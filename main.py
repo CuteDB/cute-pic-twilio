@@ -4,9 +4,11 @@
 import webapp2
 import random
 from google.appengine.ext import ndb
+import logging
+import json
 
 class Pictures(ndb.Model):
-  picURL = ndb.StringProperty()
+  picURL = ndb.StringProperty(required = True)
 
 class User(ndb.Model):
   number = ndb.StringProperty()
@@ -46,10 +48,12 @@ class twilioCalling(webapp2.RequestHandler):
       else:
         self.response.write(twiml("Thanks for the text! Add #cuteness in your text for some cuteness! :)", False, ""))
 
-class twilioCalling(webapp2.RequestHandler):
+class addImage(webapp2.RequestHandler):
 
   def post(self):
-    Pictures(picUrl = self.request.get("pic_url")).put();
+    logging.info(self.request)
+    picURL = json.loads(self.request.body)["picURL"]
+    Pictures(picURL = picURL).put();
 
 application = webapp2.WSGIApplication( [('/rest/twilio', twilioCalling), ('/rest/add', addImage)], debug = True)
 

@@ -4,19 +4,21 @@ var App = angular.module('App', ['ngRoute']);
 
 
 App.config(function($routeProvider) {
-  $routeProvider.when('/', {
+
+  $routeProvider.when('', {
     controller : 'MainCtrl',
     templateUrl: './index.html',
   });
 });
 
 App.controller('MainCtrl', function($scope, $rootScope, $log, $http, $routeParams, $location, $route){
-  $scope.url = '';
+
+  $scope.picURL = "";
 
   $scope.send = function(){
 
     var data = {
-      pic_url : $scope.url, 
+      picURL : $scope.picURL, 
     };
 
     $http.post('/rest/add', data)

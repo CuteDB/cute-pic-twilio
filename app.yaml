@@ -12,9 +12,20 @@ handlers:
   static_files: app\1/index.html
   upload: app.js
 
-- url: (.*)
-  static_files: app\1
-  upload: app.js
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: app/\1
+  upload: app/(.*\.css)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: app/\1
+  upload: app/(.*\.html)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: app/\1
+  upload: app/(.*\.js)
 
 
 
