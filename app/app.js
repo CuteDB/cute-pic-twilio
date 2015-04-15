@@ -4,14 +4,43 @@ var App = angular.module('App', ['ngRoute','ui.bootstrap']);
 
 
 App.config(function($routeProvider) {
-
-  $routeProvider.when('', {
+  $routeProvider.when('/', {
     controller : 'MainCtrl',
-    templateUrl: './index.html',
+    templateUrl: 'partials/main.html',
+  });
+  $routeProvider.when('/add', {
+    controller : 'InsertCtrl',
+    templateUrl: 'partials/add.html',
+  });
+  $routeProvider.when('/responses', {
+    controller : 'ResponsesCtrl',
+    templateUrl: 'partials/responses.html',
+  });
+  $routeProvider.when('/images', {
+    controller : 'ImagesCtrl',
+    templateUrl: 'partials/images.html',
+  });
+  $routeProvider.otherwise({
+    redirectTo : '/'
   });
 });
 
-App.controller('MainCtrl', function($scope, $rootScope, $log, $http, $routeParams, $location, $route){
+App.controller('NavCtrl',function($scope,$rootScope,$log,$http,$routeParams, $location, $route){
+  $scope.navHome = function(){
+    $location.path('/');
+  };
+  $scope.navAdd = function(){
+    $location.path('/add');
+  };
+  $scope.navResp = function(){
+    $location.path('/responses');
+  };
+  $scope.navImages = function(){
+    $location.path('/images');
+  };
+});
+
+App.controller('InsertCtrl', function($scope, $rootScope, $log, $http, $routeParams, $location, $route){
 
   $scope.picURL = "";
 
@@ -44,6 +73,14 @@ App.controller('MainCtrl', function($scope, $rootScope, $log, $http, $routeParam
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
   };
+
+});
+
+App.controller('ResponsesCtrl', function($scope, $rootScope, $log, $http, $routeParams, $location, $route){
+
+});
+
+App.controller('ImagesCtrl', function($scope, $rootScope, $log, $http, $routeParams, $location, $route){
 
 });
 

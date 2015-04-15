@@ -19,6 +19,13 @@ def twiml(message, has_media, media_url):
   else:
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>"+message+"</Message></Response>"
 
+class QueryResponseHandler(webapp2.RequestHandler):
+
+  def get(self):
+    guests = model.AllGuests()
+    r = [ AsDict(guest) for guest in guests ]
+    self.SendJson(r)
+
 def findPictureURL():
   counter = 0
   ndb_pics = Pictures.query()
