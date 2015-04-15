@@ -46,6 +46,10 @@ class twilioCalling(webapp2.RequestHandler):
       else:
         self.response.write(twiml("Thanks for the text! Add #cuteness in your text for some cuteness! :)", False, ""))
 
+class twilioCalling(webapp2.RequestHandler):
 
-application = webapp2.WSGIApplication( [('/', twilioCalling)], debug = True)
+  def post(self):
+    Pictures(picUrl = self.request.get("pic_url")).put();
+
+application = webapp2.WSGIApplication( [('/rest/twilio', twilioCalling), ('/rest/add', addImage)], debug = True)
 
