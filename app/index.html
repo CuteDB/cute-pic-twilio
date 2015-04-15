@@ -9,24 +9,30 @@
 </head>
 <body>
 
-  <div ng-controller="MainCtrl">
-    <h1 class="text-center">Add Cute Pics!!!</h1>
-    <div class="row"></div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-6">
-        <input class="form-control ng-pristine ng-valid" type="text" ng-model="picURL"/>
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div ng-controller="MainCtrl">
+          <h1 class="text-center">Add Cute Pics!!!</h1>
+          <div class="row"></div>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+              <input class="form-control ng-pristine ng-valid" type="text" ng-model="picURL"/>
+            </div>
+            <div class="col-md-2"><button class="btn btn-primary btn-block">Submit</button></div>
+            <div class="col-md-2"></div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <img ng-src="{{picURL}}" class="img-rounded img-responsive center-block"/>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-2"><button class="btn btn-primary btn-block">Submit</button></div>
-      <div class="col-md-2"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <img ng-src="{{picURL}}" class="img-rounded img-responsive center-block"/>
-      </div>
-      <div class="col-md-2"></div>
     </div>
   </div>
 
