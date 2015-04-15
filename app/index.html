@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="App">
+<head>
+  <title>CutePic Admin Panel</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-route.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="ui-bootstrap-0.12.1.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+  <div ng-controller="NavCtrl">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <ul class="nav navbar-nav">
+        <li><a ng-click="navHome()">Home</a></li>
+        <li><a ng-click="navAdd()">Add Image</a></li>
+        <li><a ng-click="navResp()">Responses</a></li>
+        <li><a ng-click="navImages()">Images</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div ng-view></div>
+</body>
+</html>
