@@ -36,7 +36,7 @@ App.controller('MainCtrl', function($scope, $rootScope, $log, $http, $routeParam
         $scope.alerts.push({ type: 'success', msg: 'Success! Picture added.' });
       });
     } else {
-      $scope.alerts.push({ type: 'danger', msg: 'URL does not contain an image. Please try again.' });
+      $scope.alerts.push({ type: 'danger', msg: 'Invalid URL! Please try again.' });
     }
     
     $scope.picURL = "";
