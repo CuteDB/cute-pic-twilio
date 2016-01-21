@@ -1,2 +1,2 @@
-# cute-pic-twilio
-an app that, when texted, responds using Twilio API with a cute picture
+# random-pepe-twilio
+An app that when texted responds with the Twilio API with a random pepe
